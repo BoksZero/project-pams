@@ -27,6 +27,7 @@
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/welcome"><img class="img-logo" src="https://www.lnu.edu.ph/images/logo.png" alt=""></a>
+            <a class="navbar-brand" href="/welcome"><img class="img-logo" src="/images/GradSchoolLogo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,7 +35,7 @@
 
                 <ul class="navbar-nav ms-auto font-weight-semibold">
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="/welcome">Home</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="#">FAQ's</a>
@@ -247,47 +248,60 @@
                             </div>
 
                             <div class="row mt-4 mb-3">
-
-                                <select hidden class="form-select" aria-label="Default select example" name="first_period">
-                                    <option selected value="null">Select First Period Subject</option>
-                                    <option value="MIT 501 Advanced Programming I">MIT 501 - Advanced Programming I</option>
-                                    <option value="MIT 505 Advanced Data Structure and Algorithm">MIT 505 - Advanced Data Structure & Algorithm</option>
-                                    <option value="MIT 506 Advanced Multimedia Communication">MIT 506 - Advanced Multimedia Communication</option>
-                                    <option value="MSIT 501 Advanced Programming I">MSIT 501 Advanced Programming I</option>
-                                    <option value="MSIT 505 Advanced Data Structure & Algorithm">MSIT 505 Advanced Data Structure & Algorithm</option>
-                                    <option value="MSIT 506 Advanced Multimedia Communication">MSIT 506 Advanced Multimedia Communication</option>
-                                    <option value="FD 501 BASIC RESEARCH">FD 501 BASIC RESEARCH</option>
-                                    <option value="LIT 501 Literary Theory and Cristism">LIT 501 Literary Theory and Cristism</option>
-                                    <option value="LIT 507 Sociolinguistics">LIT 507 Sociolinguistics</option>
-                                    <option value="LT 511 Evaluation Procedures in Language and Literature Teaching">LT 511 Evaluation Procedures in Language and Literature Teaching</option>
-                                    <option value="SW 509 Theory and Practice of Community Organization">SW 509 Theory and Practice of Community Organization</option>
-                                </select>
-
-                                <select hidden class="form-select" aria-label="Default select example" name="second_period">
-                                    <option selected value="null">Select Second Period Subject</option>
-                                    <option value="MIT 502 Methods of Research for IT">MIT 502 - Methods of Research for IT</option>
-                                    <option value="MIT 507 System Analysis and Design">MIT 507 - System Analysis and Design</option>
-                                    <option value="MSIT 502 Methods of Research for IT">MSIT 502 Methods of Research for IT</option>
-                                    <option value="MSIT 507 System Analysis and Design">MSIT 507 System Analysis and Design</option>
-                                    <option value="FD 502 Basic Statistics">FD 502 Basic Statistics</option>
-                                    <option value="LT 509 Language Teaching Methodology">LT 509 Language Teaching Methodology</option>
-                                    <option value="FD 501 Basic Research">FD 501 Basic Research</option>
-                                    <option value="SW 515 Field Instruction">SW 515 Field Instruction</option>
-
-                                </select>
-
-                                <select hidden class="form-select" aria-label="Default select example" name="third_period">
-                                    <option selected value="null">Select Third Period Subject</option>
-                                    <option value="MIT 503 Statistics for IT Research">MIT 503 - Statistics for IT Research</option>
-                                    <option value="MSIT 503 Statistics for IT Research">MSIT 503 - Statistics for IT Research</option>
-                                    <option value="TW 001 Statistics for IT Research">TW 001 - Thesis Writing I</option>
-                                    <option value="TW 002 Statistics for IT Research">TW 002 - Thesis Writing II Research</option>
-                                    <option value="LT 513 Foundations of Language Education (Issues and Trends in ESL)">LT 513 Foundations of Language Education (Issues and Trends in ESL)</option>
-                                    <option value="LIT 504 Strategies and Methods in Teaching Literature (Petitioned Subject)">LIT 504 Strategies and Methods in Teaching Literature (Petitioned Subject)</option>
-                                    <option value="FD 502 Basic Statistics">FD 502 Basic Statistics</option>
-                                    <option value="SW 516 Thesis Writing">SW 516 Thesis Writing</option>
-                                </select>
-
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form6Example1">1ST PERIOD</label>
+                                        <select class="form-select" aria-label="Default select example" id="slct_first_period" name="first_period" onchange="populateTwo(this.id, 'slct_second_period')">
+                                            <option disabled selected>Select First Period Subject</option>
+                                            <option value="MIT 501 Advanced Programming I">MIT 501 - Advanced Programming I</option>
+                                            <option value="MIT 505 Advanced Data Structure and Algorithm">MIT 505 - Advanced Data Structure & Algorithm</option>
+                                            <option value="MIT 506 Advanced Multimedia Communication">MIT 506 - Advanced Multimedia Communication</option>
+                                            <option value="MSIT 501 Advanced Programming I">MSIT 501 Advanced Programming I</option>
+                                            <option value="MSIT 505 Advanced Data Structure & Algorithm">MSIT 505 Advanced Data Structure & Algorithm</option>
+                                            <option value="MSIT 506 Advanced Multimedia Communication">MSIT 506 Advanced Multimedia Communication</option>
+                                            <option value="FD 501 BASIC RESEARCH">FD 501 BASIC RESEARCH</option>
+                                            <option value="LIT 501 Literary Theory and Cristism">LIT 501 Literary Theory and Cristism</option>
+                                            <option value="LIT 507 Sociolinguistics">LIT 507 Sociolinguistics</option>
+                                            <option value="LT 511 Evaluation Procedures in Language and Literature Teaching">LT 511 Evaluation Procedures in Language and Literature Teaching</option>
+                                            <option value="SW 509 Theory and Practice of Community Organization">SW 509 Theory and Practice of Community Organization</option>
+                                        </select>
+                                        <span class="text-danger">@error('first_period'){{$message}} @enderror</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mt-2">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form6Example2">2ND PERIOD</label>
+                                        <select class="form-select" aria-label="Default select example" id="slct_second_period" name="second_period" onchange="populateThree(this.id, 'slct_third_period')">
+                                            <option disabled selected>Select Second Period Subject</option>
+                                            <option value="MIT 502 Methods of Research for IT">MIT 502 - Methods of Research for IT</option>
+                                            <option value="MIT 507 System Analysis and Design">MIT 507 - System Analysis and Design</option>
+                                            <option value="MSIT 502 Methods of Research for IT">MSIT 502 Methods of Research for IT</option>
+                                            <option value="MSIT 507 System Analysis and Design">MSIT 507 System Analysis and Design</option>
+                                            <option value="FD 502 Basic Statistics">FD 502 Basic Statistics</option>
+                                            <option value="LT 509 Language Teaching Methodology">LT 509 Language Teaching Methodology</option>
+                                            <option value="FD 501 Basic Research">FD 501 Basic Research</option>
+                                            <option value="SW 515 Field Instruction">SW 515 Field Instruction</option>
+                                        </select>
+                                        <span class="text-danger">@error('second_period'){{$message}} @enderror</span>
+                                    </div>
+                                </div>
+                                <div class="col mt-3 mt-2">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form6Example2">3RD PERIOD</label>
+                                        <select class="form-select" aria-label="Default select example" id="slct_third_period" name="third_period">
+                                            <option disabled selected>Select Third Period Subject</option>
+                                            <option value="MIT 503 Statistics for IT Research">MIT 503 - Statistics for IT Research</option>
+                                            <option value="MSIT 503 Statistics for IT Research">MSIT 503 - Statistics for IT Research</option>
+                                            <option value="TW 001 Statistics for IT Research">TW 001 - Thesis Writing I</option>
+                                            <option value="TW 002 Statistics for IT Research">TW 002 - Thesis Writing II Research</option>
+                                            <option value="LT 513 Foundations of Language Education (Issues and Trends in ESL)">LT 513 Foundations of Language Education (Issues and Trends in ESL)</option>
+                                            <option value="LIT 504 Strategies and Methods in Teaching Literature (Petitioned Subject)">LIT 504 Strategies and Methods in Teaching Literature (Petitioned Subject)</option>
+                                            <option value="FD 502 Basic Statistics">FD 502 Basic Statistics</option>
+                                            <option value="SW 516 Thesis Writing">SW 516 Thesis Writing</option>
+                                        </select>
+                                        <span class="text-danger">@error('third_period'){{$message}} @enderror</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mt-4 mb-5">Register</button>

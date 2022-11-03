@@ -12,8 +12,7 @@
         <a class="d-none d-sm-inline-block btn btn-md btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modalForm">New Subject</a>
     </div>
     <p>The list of subjects shown in the table below are the available subjects for the S.Y. 2022-2023.</p>
-      
-         
+    </div>
 </div>
 
 <!-- Modal -->
